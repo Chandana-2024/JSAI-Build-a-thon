@@ -5,8 +5,8 @@ import dotenv from 'dotenv';
 dotenv.config();
 
 // Simulated Azure AI Foundry inference call
-function callAzureAI(prompt) {
-  console.log("Prompt sent to Azure AI model:", prompt);
+function callAzureAI(userPrompt) {
+  console.log("Prompt sent to Azure AI model:", userPrompt);
 
   // Properly structured fake response
   return {
@@ -18,7 +18,7 @@ function callAzureAI(prompt) {
 }
 
 // Call the function with a sample prompt
-const promptMessage = "Hello AI, how are you?";
-const response = callAzureAI(promptMessage);
+const userPrompt = "Hello AI, how are you?";
+const result = callAzureAI(userPrompt);
 
-console.log("Azure AI Foundry Response:", response);
+console.log("Azure AI Foundry Response:", result);
