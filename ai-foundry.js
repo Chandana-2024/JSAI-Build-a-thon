@@ -1,13 +1,22 @@
-// Simulated Azure AI Inference response
-function fakeAzureInference(prompt) {
-  console.log(`Prompt sent to model: ${prompt}`);
-  // Mocked response
+// ai-foundry.js
+import dotenv from 'dotenv';
+dotenv.config();
+
+// Simulated Azure AI Foundry inference call
+function callAzureAI(prompt) {
+  console.log("Prompt sent to Azure AI model:", prompt);
+
+  // Fake response structure
   return {
-    message: "This is a fake response from a simulated Azure AI model.",
-    status: "success"
+    response: {
+      message: "This is a simulated response from Azure AI Foundry.",
+      status: "success"
+    }
   };
 }
 
-// Call the function with a sample prompt
-const result = fakeAzureInference("Hello AI, how are you?");
-console.log("Simulated Azure Response:", result);
+// Call the function with a prompt
+const prompt = "Hello AI, how are you?";
+const result = callAzureAI(prompt);
+
+console.log("Azure AI Foundry Response:", result);
