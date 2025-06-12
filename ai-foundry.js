@@ -1,7 +1,8 @@
 // ai-foundry.js
 
-import dotenv from 'dotenv';
+const dotenv = require('dotenv');
 dotenv.config();
+
 
 // Simulated Azure AI Foundry inference call
 function callAzureAI(userPrompt) {
