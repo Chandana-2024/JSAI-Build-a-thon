@@ -6,7 +6,9 @@ export async function onRequest(context) {
   const body = await context.request.json();
   const messages = body.messages;
 
-  const response = await ai.chat(messages);
+  const result = await ai.chat(messages);
 
-  return new Response(JSON.stringify(response));
+  return new Response(JSON.stringify(result), {
+    headers: { "Content-Type": "application/json" },
+  });
 }
