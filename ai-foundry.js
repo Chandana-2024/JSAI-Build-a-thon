@@ -1,22 +1,12 @@
-// ai-foundry.js
+import { Ai } from "@githubnext/ai";
 
-const dotenv = require('dotenv');
-dotenv.config();
+const ai = new Ai();
 
+export async function onRequest(context) {
+  const body = await context.request.json();
+  const messages = body.messages;
 
-// Simulated Azure AI Foundry inference call
-function callAzureAI(userPrompt) {
-  console.log("Prompt sent to Azure AI model:", userPrompt);
+  const response = await ai.chat(messages);
 
-  return {
-    response: {
-      message: "This is a simulated response from Azure AI Foundry.",
-      status: "success"
-    }
-  };
+  return new Response(JSON.stringify(response));
 }
-
-const userPrompt = "Hello AI, how are you?";
-const result = callAzureAI(userPrompt);
-
-console.log("Azure AI Foundry Response:", result);
