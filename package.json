@@ -1,9 +1,15 @@
 {
   "type": "module",
   "dependencies": {
-    "@azure-rest/ai-inference": "^1.0.0-beta.6",
-    "@azure/core-auth": "^1.9.0",
     "@azure/openai": "^2.0.0",
     "dotenv": "^16.5.0"
+  },
+  "devDependencies": {
+    "concurrently": "^9.1.2"
+  },
+  "scripts": {
+    "start": "concurrently \"npm run start:webapi\" \"npm run dev:webapp\"",
+    "start:webapi": "cd packages/webapi && npm start",
+    "dev:webapp": "cd packages/webapp && npm run dev"
   }
 }
