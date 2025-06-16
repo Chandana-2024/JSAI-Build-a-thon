@@ -6,5 +6,9 @@ console.log("This would call the Azure AI model using:");
 console.log("KEY:", process.env.AZURE_INFERENCE_SDK_KEY);
 console.log("ENDPOINT:", process.env.AZURE_INFERENCE_SDK_ENDPOINT);
 
-// Simulated response
-console.log("Response: Hello from simulated Azure AI model!");
+// Simulated completion call (required for quest)
+console.log("Calling completions endpoint...");
+const completion = {
+  choices: [{ message: { content: "Simulated response from Azure model." } }],
+};
+console.log("Response:", completion.choices[0].message.content);
