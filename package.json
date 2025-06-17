@@ -2,7 +2,8 @@
   "type": "module",
   "dependencies": {
     "@azure/openai": "^2.0.0",
-    "dotenv": "^16.5.0"
+    "dotenv": "^16.5.0",
+    "pdf-parse": "^1.0.1"
   },
   "devDependencies": {
     "concurrently": "^9.1.2"
