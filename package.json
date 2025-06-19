@@ -2,6 +2,7 @@
   "type": "module",
   "dependencies": {
     "@azure/openai": "^2.0.0",
+    "@langchain/azure-openai": "^0.0.11",
     "dotenv": "^16.5.0",
     "pdf-parse": "^1.0.1",
     "react": "^19.1.0",
