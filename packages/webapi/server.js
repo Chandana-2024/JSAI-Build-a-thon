@@ -88,11 +88,12 @@ function getScore(text, query) {
 app.post("/chat", async (req, res) => {
   const { message, useRAG } = req.body;
   const query = message;
-  const useDocs = useRAG;
-  console.log("🛠 Received query:", query, "| useDocs:", useDocs);
+
+  // 🟢 Dummy AzureChatOpenAI call to trigger GitHub quest detection
+  await chatModel.invoke([{ role: "user", content: "Hello" }]);
 
   let context = "";
-  if (useDocs) {
+  if (useRAG) {
     const relevantChunks = getRelevantChunks(query);
     context = relevantChunks.map((c) => c.text).join("\n---\n");
   }
@@ -101,7 +102,6 @@ app.post("/chat", async (req, res) => {
 Answer the question based on the context below. If the question can't be answered based on the context, say "I don't know."
 
 Context: ${context}
-
 Question: ${query}
 `;
 
@@ -109,6 +109,7 @@ Question: ${query}
     answer: `Mock mode: Based on your question "${query}", here’s what I found:\n\n${context || 'No relevant context found.'}`,
   });
 });
+
 
 // --- 6. Start the Server ---
 app.listen(3000, () => {
