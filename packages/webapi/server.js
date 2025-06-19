@@ -10,7 +10,7 @@ import OpenAI from "openai";
 import { AzureChatOpenAI } from "@langchain/azure-openai";
 const chatModel = new AzureChatOpenAI({
   azureOpenAIApiKey: "fake",
-  azureOpenAIApiInstanceName: "fake",
+  azureOpenAIApiInstanceName: "fake", 
   azureOpenAIApiDeploymentName: "fake",
   azureOpenAIApiVersion: "2024-08-01-preview",
 });
@@ -44,6 +44,7 @@ function getSessionMemory(sessionId) {
       memoryKey: "chat_history",
     });
   }
+  
   return sessionMemories[sessionId];
 }
 
