@@ -403,3 +403,7 @@ FodyWeavers.xsd
 # Environment variables
 .env
 .azure
+
+!packages/webapi/*
+!packages/webapi/server.js
+!packages/webapi/data/employee_handbook.pdf
