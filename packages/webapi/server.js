@@ -73,6 +73,7 @@ function getRelevantChunks(query) {
     .sort((a, b) => b.score - a.score)
     .slice(0, 3);
 }
+// Triggering GitHub Action to move to Quest 6
 
 function getScore(text, query) {
   const queryWords = query.toLowerCase().split(/\s+/);
