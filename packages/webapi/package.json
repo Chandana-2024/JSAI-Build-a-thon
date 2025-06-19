@@ -1,0 +1,23 @@
+{
+  "name": "webapi",
+  "version": "1.0.0",
+  "type": "module",
+  "description": "Express API for AI chat interface",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "@langchain/openai": "^0.5.13",
+    "body-parser": "^2.2.0",
+    "cors": "^2.8.5",
+    "dotenv": "^16.5.0",
+    "express": "^5.1.0",
+    "langchain": "^0.3.28",
+    "openai": "^5.5.1",
+    "pdf-parse": "^1.1.1"
+  }
+}
