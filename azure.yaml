@@ -1,0 +1,21 @@
+name: jsai-chat-app
+
+services:
+  webapp:
+    project: packages/webapp
+    host: staticwebapp
+    language: js
+    dist: dist
+    hooks:
+      predeploy:
+        windows:
+          shell: pwsh
+          run: npm run build
+        posix:
+          shell: sh
+          run: npm run build
+
+  webapi:
+    project: packages/webapi
+    host: appservice
+    language: js
