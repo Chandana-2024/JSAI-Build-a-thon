@@ -81,10 +81,12 @@ app.post("/chat", async (req, res) => {
     let sources = [];
 
     const memory = getSessionMemory(sessionId);
+
     const memoryVars = await memory.loadMemoryVariables({});
 
     if (useRAG) {
       loadPDF(); // mock
+      
       sources = retrieveRelevantContent(userMessage);
     }
 
