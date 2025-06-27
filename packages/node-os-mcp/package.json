@@ -1,5 +1,5 @@
 {
-  "name": "node_os_mcp",
+  "name": "node-os-mcp",
   "version": "0.0.1",
   "description": "My MCP Server",
   "main": "./lib/src/index.js",
