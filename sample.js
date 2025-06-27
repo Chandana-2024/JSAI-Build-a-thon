@@ -1,20 +1,39 @@
-// sample.js
+/*
+Run this model in Javascript
 
-// Simulating a GenAI model output (mock version)
+> npm install @azure-rest/ai-inference @azure/core-auth @azure/core-sse
+*/
 
-// This line is required for GitHub Action validation (even if you don't use the real token)
-const GITHUB_TOKEN = process.env.GITHUB_TOKEN || "mock_token";
+import ModelClient, { isUnexpected } from "@azure-rest/ai-inference";
+import { AzureKeyCredential } from "@azure/core-auth";
 
-const prompt = "Write a short story about a time-traveling cat.";
+// Reference GITHUB_TOKEN to satisfy GitHub Actions check
+const token = process.env["GITHUB_TOKEN"];
 
-function mockGenAIResponse(promptText) {
-  if (promptText.includes("cat")) {
-    return "Once upon a time, a curious cat named Whiskers discovered a glowing portal behind the sofa...";
-  } else {
-    return "Sorry, I can only generate stories about cats right now. 😸";
-  }
+export async function main() {
+    const client = ModelClient(
+        "https://models.github.ai/inference",
+        new AzureKeyCredential(token)
+    );
+
+    const response = await client.path("/chat/completions").post({
+        body: {
+            messages: [
+                { role: "user", content: "Can you explain the basics of machine learning?" }
+            ],
+            model: "meta/Llama-3.2-11B-Vision-Instruct",
+            temperature: 0.8,
+            max_tokens: 2048,
+            top_p: 0.1
+        }
+    });
+
+    if (isUnexpected(response)) {
+        throw response.body.error;
+    }
+    console.log(response.body.choices[0].message.content);
 }
 
-console.log("🧠 Prompt:", prompt);
-console.log("📦 Generated response:");
-console.log(mockGenAIResponse(prompt));
+main().catch((err) => {
+    console.error("The sample encountered an error:", err);
+});
