@@ -416,3 +416,6 @@ node_modules/
 packages/agent/my-agent.agent.yaml
 # Allow agentService.js and other files in webapi
 !packages/webapi/*
+# Allow node-os-mcp for Quest 7
+!packages/node-os-mcp/
+!packages/node-os-mcp/**
