@@ -273,4 +273,6 @@ Here are some additional resources to help you learn more about the Model Contex
 - [MCP TypeScript SDK](https://github.com/modelcontextprotocol/typescript-sdk)
 - [Build agents and prompts in AI Toolkit](https://code.visualstudio.com/docs/intelligentapps/agentbuilder)
 
+<!-- trigger refresh -->
+
 
