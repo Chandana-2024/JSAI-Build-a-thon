@@ -419,3 +419,7 @@ packages/agent/my-agent.agent.yaml
 # Allow node-os-mcp for Quest 7
 !packages/node-os-mcp/
 !packages/node-os-mcp/**
+
+# --- Force include MCP server for Quest 7
+!packages/node-os-mcp/
+!packages/node-os-mcp/**/*
