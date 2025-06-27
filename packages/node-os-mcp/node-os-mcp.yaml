@@ -1,0 +1,4 @@
+name: node-os-mcp
+version: 0.0.1
+description: A server that provides tools to get information about the operating system.
+entry: src/index.ts

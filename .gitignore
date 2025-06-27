@@ -414,3 +414,5 @@ node_modules/
 
 # Dummy line to trigger GitHub Actions
 packages/agent/my-agent.agent.yaml
+# Allow agentService.js and other files in webapi
+!packages/webapi/*
