@@ -3,16 +3,22 @@ import * as os from "os";
 
 const server = new McpServer({
   name: "node-os-mcp",
+
   description: "A server that provides tools to get information about the operating system.",
+ 
   version: "0.0.1",
+
 });
 
 server.tool("cpu_average_usage", "Get average CPU usage", {}, async () => {
   function cpuAverage() {
     const cpus = os.cpus();
     let totalIdle = 0, totalTick = 0;
+
     for (const cpu of cpus) {
+
       for (const type in cpu.times) {
+
         totalTick += cpu.times[type as keyof typeof cpu.times];
       }
       totalIdle += cpu.times.idle;
@@ -21,11 +27,14 @@ server.tool("cpu_average_usage", "Get average CPU usage", {}, async () => {
   }
 
   const start = cpuAverage();
+
   await new Promise(res => setTimeout(res, 100));
   const end = cpuAverage();
 
   const idleDiff = end.idle - start.idle;
+
   const totalDiff = end.total - start.total;
+
   const usage = totalDiff > 0 ? (1 - idleDiff / totalDiff) * 100 : 0;
 
   return {
@@ -41,12 +50,29 @@ server.tool("get_hostname", "Get hostname", {}, async () => ({
 
 server.tool("get_architecture", "Get architecture", {}, async () => ({
   content: [{ type: "text", text: `Architecture: ${os.arch()}` }],
+  
   isError: false
 }));
 
 server.tool("get_uptime", "Get uptime", {}, async () => ({
   content: [{ type: "text", text: `Uptime: ${os.uptime()} seconds` }],
+
   isError: false
+
 }));
 
 export { server };
+
+
+
+
+
+
+
+
+
+
+
+
+
+
