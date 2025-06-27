@@ -1,8 +1,0 @@
-{
-    "servers": {
-        "local-server-node_os_mcp": {
-            "type": "sse",
-            "url": "http://localhost:3001/sse"
-        }
-    }
-}

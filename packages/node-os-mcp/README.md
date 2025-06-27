@@ -50,3 +50,4 @@ This is a sample MCP Server in TypeScript implementing weather tools with mock r
 ## Feedback
 
 If you have any feedback or suggestions for this template, please open an issue on the [AI Toolkit GitHub repository](https://github.com/microsoft/vscode-ai-toolkit/issues)
+
