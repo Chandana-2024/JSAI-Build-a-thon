@@ -5,7 +5,7 @@ jobs:
   update-readme:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
       - name: Regenerate README
         run: echo "Forced refresh $(date)" >> README.md
       - name: Push changes
